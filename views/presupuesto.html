@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- Define el idioma principal de la página -->
+<head>
+    <meta charset="UTF-8"> <!-- Codificación de caracteres para admitir caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asegura que la página sea responsiva en dispositivos móviles -->
+
+    <!-- Metadatos para SEO y optimización -->
+    <meta name="description" content="Desarrollador web con experiencia en la creación de sitios y aplicaciones optimizadas, responsivas y seguras. Especialista en HTML, CSS, JavaScript y frameworks modernos. Apasionado por la innovación y el rendimiento web.">
+    <link rel="canonical" href="https://tudominio.com/index.html"> <!-- Metaetiqueta no válida en HTML, se puede eliminar -->
+    <meta name="author" content="Mohammed Bouazza"> <!-- Define el autor del sitio -->
+    <meta name="keywords" content="web developer, web designer, front-end developer, back-end developer, HTML, CSS, JavaScript, responsive design, performance, SEO, sitemap, analytics">
+    <meta name="robots" content="index, follow"> <!-- Indica a los motores de búsqueda que indexen y sigan los enlaces -->
+    <meta name="revisit-after" content="7 days"> <!-- No tiene impacto en SEO moderno, se puede eliminar -->
+    <meta name="language" content="es-ES"> <!-- Define el idioma de la página -->
+    <meta name="theme-color" content="#243AFCFF"> <!-- Color de la interfaz en dispositivos móviles -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/Favicon.png" type="image/x-icon">
+    <!-- Enlace a la librería de Boxicons para cargar estilos de íconos -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Presupuesto</title> <!-- Título que aparece en la pestaña del navegador -->
+</head>
+<body>
+    <header class="header">
+        <div class="menu-container">
+            <a href="#" class="logo">Logo</a> <!-- Enlace al logo que redirige a la página principal -->
+
+            <!-- Menú hamburguesa para dispositivos móviles -->
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icono">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Barra de navegación -->
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../views/productos.html">Productos</a></li>
+                    <li><a href="../views/presupuesto.html" class="active">Presupuesto</a></li>
+                    <li><a href="../views/contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--<h1>La web del futuro</h1>--> <!-- Comentado, si no se usa, se puede eliminar -->
+    </header>
+
+    <main>
+        <h2>Presupuesto</h2>
+
+        <!-- Formulario de solicitud de presupuesto -->
+        <form id="BudgetForm">
+            <!-- Campo para ingresar el nombre -->
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="nombre" placeholder="Escribe tu nombre" required>
+
+            <!-- Campo para ingresar el email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Escribe tu email" required>
+
+            <!-- Campo para ingresar el teléfono -->
+            <label for="telephone">Teléfono:</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="624 32 65 14" required>
+
+            <!-- Campo de texto para más detalles -->
+            <textarea name="message" id="message" cols="20" rows="10" placeholder="Más información"></textarea>
+
+            <!-- Casilla para aceptar la política de privacidad -->
+            <div class="terms-container">
+                <input type="checkbox" id="politic" required>
+                <label for="politic">
+                    He leído y acepto la <a href="https://policies.google.com/privacy?hl=es" target="_blank">Política de Privacidad</a>
+                </label>
+            </div>
+
+            <!-- Botón de envío del formulario -->
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <!-- Pie de página con enlaces a redes sociales -->
+    <footer class="social-footer">
+        <!-- Contenedor para los íconos de redes sociales -->
+        <div class="social-media">
+            <!-- Enlace a Facebook: abre en una nueva pestaña con accesibilidad -->
+            <a href="https://www.facebook.com" target="_blank" alt="Síguenos en Facebook">
+            <!-- Ícono de Facebook usando la librería Boxicons -->
+            <i class="bx bxl-facebook"></i>
+            </a>
+            <!-- Enlace a Instagram: abre en una nueva pestaña con accesibilidad -->
+            <a href="https://www.instagram.com" target="_blank" alt="Síguenos en Instagram">
+            <!-- Ícono de Instagram usando Boxicons -->
+            <i class="bx bxl-instagram"></i>
+            </a>
+            <!-- Enlace a Twitter: abre en una nueva pestaña con accesibilidad -->
+            <a href="https://www.twitter.com" target="_blank" alt="Síguenos en Twitter">
+            <!-- Ícono de Twitter usando Boxicons -->
+            <i class="bx bxl-twitter"></i>
+            </a>
+            <!-- Enlace a YouTube: abre en una nueva pestaña con accesibilidad -->
+            <a href="https://www.youtube.com" target="_blank" alt="Visita nuestro canal de YouTube">
+            <!-- Ícono de YouTube usando Boxicons -->
+            <i class="bx bxl-youtube"></i>
+            </a>
+        </div>
+        
+        <!-- Dieeccion-->
+        <address class="direction">
+          Calle Ugena, 45, 45210 Yuncos, CP 45210, Toledo<br>
+          Teléfono: (+34) 641 72 62 63<br>
+          Email: <a href="mailto:info@webtech.com">info@webtech.com</a>
+        </address>
+        <!-- Derechos de autor -->
+        <p>&copy; 2025 WebTech. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

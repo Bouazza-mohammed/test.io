@@ -1,0 +1,1403 @@
+/* Importación de fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Estilos globales para todos los elementos */
+/* Resetea márgenes y rellenos, aplica box-sizing y define fuentes predeterminadas */
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', 'Poppins', 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-rendering: optimizeLegibility; 
+    -webkit-font-smoothing: antialiased; 
+}
+
+/* Variables CSS definidas en el pseudo-elemento :root para uso global */
+:root {
+    /* Paleta de colores */
+    --color-primario: #00ffff; 
+    --color-secundario: #3b82f6; 
+    --color-acento: #60a5fa; 
+    --color-oscuro: #1d1e20; 
+    --color-oscuro-2: #353638; 
+    --color-claro: #f8fafc; 
+    --color-gris: #64748b; 
+    --color-exito: #22c55e; 
+    --color-error: #ef4444; 
+    --color-advertencia: #f59e0b; 
+    --color-texto: #ffffff; 
+    /* Espaciados */
+    --espaciado-xs: 0.25rem; 
+    --espaciado-sm: 0.5rem; 
+    --espaciado-md: 1rem; 
+    --espaciado-lg: 1.5rem; 
+    --espaciado-xl: 2rem; 
+    /* Bordes redondeados */
+    --borde-radio-sm: 0.25rem; 
+    --borde-radio-md: 0.4rem; 
+    --borde-radio-lg: 0.7rem; 
+    /* Tamaños de texto */
+    --texto-xs: 0.75rem; 
+    --texto-sm: 0.875rem; 
+    --texto-base: 1rem; 
+    --texto-lg: 1.125rem; 
+    --texto-xl: 1.25rem;
+    --texto-2xl: 1.5rem; 
+    --texto-logo: 2rem; 
+}
+
+/* Animación de aparición desde abajo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); 
+    }
+    to {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Animación de aparición del menú desde arriba */
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de aparición del logo desde arriba */
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de deslizamiento desde la izquierda */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%); 
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+/* Animación de efecto de brillo */
+@keyframes shine {
+    0% {
+        transform: translateX(-200%) rotate(45deg); 
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg); 
+    }
+}
+
+/* Animación de aparición de mensajes desde abajo */
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de aparición de footer social desde abajo */
+@keyframes socialFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de pulso para enlaces */
+@keyframes linkPulse {
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.05); } 
+    100% { transform: scale(1); } 
+}
+
+/* Animación de movimiento wiggle para enlaces al pasar el mouse */
+@keyframes linkWiggle {
+    0%, 100% { transform: rotate(0deg); } 
+    25% { transform: rotate(-10deg); } 
+    75% { transform: rotate(10deg); } 
+}
+
+/* Estilos del cuerpo de la página */
+body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/abstract.jpg); 
+    background-position: center; 
+    background-size: cover; 
+    color: var(--color-texto); 
+    font-size: var(--texto-base); 
+    line-height: 1.6; 
+    letter-spacing: 0.01em; 
+    word-spacing: 0.05em; 
+}
+
+/* Ajuste de color en modo oscuro */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: var(--color-claro); 
+    }
+}
+
+/* Ajuste de tamaño de fuente para pantallas medianas */
+@media (max-width: 768px) {
+    body {
+        font-size: calc(var(--texto-base) * 0.95); 
+    }
+}
+
+/* Ajuste de tamaño de fuente para pantallas pequeñas */
+@media (max-width: 480px) {
+    body {
+        font-size: calc(var(--texto-base) * 0.9); 
+    }
+}
+
+/* Estilos del encabezado */
+.header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    padding: var(--espaciado-md); 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+/* Ajuste de relleno en pantallas medianas */
+@media (max-width: 768px) {
+    .header {
+        padding: var(--espaciado-sm); 
+    }
+}
+
+/* Estilo del encabezado al hacer scroll */
+.header.scrolled {
+    padding: var(--espaciado-sm); 
+}
+
+/* Contenedor del menú */
+.menu-container {
+    display: flex; 
+    align-items: center; 
+    gap: var(--espaciado-lg); 
+    position: relative;
+    padding-right: 1rem; 
+    width: 100vw; 
+    animation: menuFadeIn 0.5s ease forwards; 
+}
+
+/* Efecto al pasar el mouse sobre los ítems del menú */
+.menu-container:hover .menu-item {
+    opacity: 0.7; 
+}
+
+.menu-container:hover .menu-item:hover {
+    opacity: 1; 
+    transform: translateY(-2px); 
+}
+
+/* Ajustes responsivos para pantallas medianas */
+@media (max-width: 768px) {
+    .menu-container {
+        gap: var(--espaciado-md); 
+        justify-content: flex-end; 
+        width: 100%; 
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    .menu-container {
+        align-items: flex-end; 
+    }
+}
+
+/* Pseudo-elemento para efecto de brillo */
+.menu-container::before {
+    content: ''; 
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%; 
+    height: 200%; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+    pointer-events: none; 
+}
+
+/* Muestra el efecto al pasar el mouse */
+.menu-container:hover::before {
+    opacity: 1; 
+}
+
+/* Estilos del logo */
+.logo {
+    display: inline-block; 
+    font-size: var(--texto-logo); 
+    font-weight: 700; /* Negrita */
+    color: var(--color-primario); 
+    text-decoration: none; 
+    padding: var(--espaciado-sm); 
+    transition: all 0.3s ease; 
+    animation: logoFadeIn 0.5s ease-in; 
+}
+
+/* Efecto al pasar el mouse */
+.logo:hover {
+    transform: scale(1.05); 
+}
+
+/* Ajuste de relleno en pantallas medianas */
+@media (max-width: 768px) {
+    .logo {
+        padding: var(--espaciado-xs); 
+    }
+}
+
+/* Icono del menú (hamburguesa) */
+.menu-icono {
+    display: none; 
+    cursor: pointer; 
+}
+
+/* Líneas del icono de menú */
+.menu-icono span {
+    display: block; 
+    width: 25px; 
+    height: 3px; 
+    background-color: var(--color-primario); 
+    margin: 5px 0; 
+    transition: all 0.3s ease; 
+}
+
+/* Checkbox oculto para controlar el menú */
+#menu-toggle {
+    display: none; 
+}
+
+/* Barra de navegación */
+.nav-bar {
+    width: 100%; 
+    transition: all 0.3s ease-in-out; 
+}
+
+/* Lista de navegación */
+.nav-bar ul {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: var(--espaciado-xl); 
+    list-style: none; 
+    text-transform: uppercase; 
+    padding: 0; 
+    margin: 0; 
+    transition: all 0.3s ease; 
+}
+
+/* Ítems de la lista */
+.nav-bar ul li {
+    position: relative; /* Posición relativa para pseudo-elementos */
+}
+
+/* Línea decorativa debajo de los ítems */
+.nav-bar ul li::after {
+    content: ""; 
+    display: block;
+    width: 0; 
+    left: 50%; 
+    height: 3px; 
+    background: var(--color-primario); 
+    position: absolute;
+    bottom: -5px; 
+    transition: all .3s; 
+}
+
+/* Expande la línea al pasar el mouse */
+.nav-bar ul li:hover::after {
+    width: 100%; 
+    left: 0; 
+}
+
+/* Enlaces de navegación */
+.nav-bar ul a {
+    color: var(--color-primario); 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: var(--texto-base); 
+    padding: var(--espaciado-sm); 
+    transition: all 0.3s ease; 
+}
+
+/* Efecto al pasar el mouse sobre los enlaces */
+.nav-bar ul a:hover {
+    transform: translateY(-2px); 
+}
+
+/* Ajustes responsivos para el menú en pantallas medianas */
+@media (max-width: 768px) {
+    .menu-icono {
+        display: block; /* Muestra el icono del menú */
+    }
+    .nav-bar {
+        position: fixed; 
+        top: 70px; 
+        left: -100%; 
+        width: 100%; 
+        height: calc(100vh - 70px); 
+        background: var(--color-oscuro-2); 
+        backdrop-filter: blur(10px); /* Desenfoque */
+        transition: 0.3s ease-in-out; /* Transición suave */
+    }
+    .nav-bar ul {
+        flex-direction: column; 
+        justify-content: center; 
+        height: 100%; 
+        gap: var(--espaciado-lg); 
+    }
+    .nav-bar ul li {
+        opacity: 0; /* Invisible al inicio */
+        transform: translateY(20px); 
+        animation: fadeInUp 0.5s ease forwards; /* Animación de entrada */
+    }
+    /* Retrasos para cada ítem */
+    .nav-bar ul li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-bar ul li:nth-child(2) { animation-delay: 0.3s; }
+    .nav-bar ul li:nth-child(3) { animation-delay: 0.6s; }
+    .nav-bar ul li:nth-child(4) { animation-delay: 0.9s; }
+    .nav-bar a {
+        font-size: var(--texto-lg); 
+        padding: 1rem 2rem; 
+    }
+    /* Muestra el menú cuando el checkbox está activado */
+    #menu-toggle:checked ~ .nav-bar {
+        left: 0; /* Entra en la pantalla */
+    }
+    /* Transformación de las líneas del icono en una "X" */
+    #menu-toggle:checked ~ .menu-icono span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); /* Línea superior */
+    }
+    #menu-toggle:checked ~ .menu-icono span:nth-child(2) {
+        opacity: 0; /* Línea central desaparece */
+    }
+    #menu-toggle:checked ~ .menu-icono span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); /* Línea inferior */
+    }
+}
+
+/* Estilo para el ítem activo */
+.active::before {
+    content: ""; 
+    display: block;
+    width: 100%; 
+    left: 0; 
+    height: 3px; 
+    background: var(--color-primario); 
+    position: absolute;
+    bottom: -5px; 
+}
+
+/* Contenido principal */
+main {
+    margin-top: calc(var(--espaciado-xl) * 4); 
+    padding: var(--espaciado-xl); /* Relleno grande */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/abstract.jpg); /* Fondo con imagen */
+    background-position: center bottom; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+/* Ajuste responsivo para pantallas medianas */
+@media (max-width: 768px) {
+    main {
+        padding: var(--espaciado-md); 
+        margin-top: calc(var(--espaciado-xl) * 3); 
+    }
+}
+
+/* Estilos para títulos h2 */
+h2 {
+    color: var(--color-primario); 
+    text-align: center; 
+    font-size: 2rem; 
+    margin-bottom: var(--espaciado-xl); 
+}
+
+/* Sección de bienvenida */
+.welcome {
+    padding: var(--espaciado-xl) var(--espaciado-lg); 
+    text-align: center; 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/Codigo-en-panatalla.jpg); /* Fondo con imagen */
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--borde-radio-lg); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    margin: calc(var(--espaciado-xl) * 4) auto var(--espaciado-xl); 
+    max-width: 1200px; 
+    position: relative;
+    overflow: hidden; 
+    transform: translateY(20px); 
+    animation: fadeInUp 0.8s ease forwards 0.2s; 
+}
+
+/* Efecto de gradiente al pasar el mouse */
+.welcome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.1) 100%); 
+    transform: translateX(-100%); 
+    transition: transform 0.6s ease-in-out; 
+}
+
+/* Muestra el gradiente al pasar el mouse */
+.welcome:hover::before {
+    transform: translateX(0); 
+}
+
+/* Título dentro de la sección de bienvenida */
+.welcome h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem); 
+    color: var(--color-claro); 
+    margin-bottom: var(--espaciado-lg); 
+    font-weight: 700; 
+    line-height: 1.2; 
+    opacity: 0; 
+    transform: translateY(20px); /* Desplazado hacia abajo */
+    animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Párrafo dentro de la sección de bienvenida */
+.welcome p {
+    font-size: clamp(1rem, 2vw, 1.25rem); 
+    color: var(--color-claro); 
+    line-height: 1.8; 
+    margin-bottom: var(--espaciado-xl); 
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.2s; /* Animación con retraso */
+}
+
+/* Ajustes responsivos para pantallas medianas */
+@media (max-width: 768px) {
+    .welcome {
+        padding: var(--espaciado-lg) var(--espaciado-md); 
+        margin: calc(var(--espaciado-xl) * 3) var(--espaciado-md) var(--espaciado-lg); 
+    }
+    .welcome h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem); 
+    }
+    .welcome p {
+        font-size: clamp(0.9rem, 1.8vw, 1.1rem); 
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    .welcome {
+        padding: var(--espaciado-md); 
+        margin: calc(var(--espaciado-xl) * 3) var(--espaciado-sm) var(--espaciado-md); 
+    }
+}
+
+/* Estilos de botones */
+.btn {
+    display: inline-block; 
+    padding: var(--espaciado-sm) var(--espaciado-xl); 
+    background: var(--color-primario); 
+    color: var(--color-claro); 
+    text-decoration: none; /* Sin subrayado */
+    text-shadow: 1px 1px 3px var(--color-oscuro); 
+    font-weight: 700; 
+    font-size: var(--texto-lg); 
+    border-radius: var(--borde-radio-md); 
+    border: 2px solid var(--color-primario); 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1); 
+    position: relative;
+    overflow: hidden; 
+    z-index: 1; 
+    transform: translateY(20px); 
+    animation: fadeInUp 0.8s ease forwards 0.2s; 
+}
+
+/* Efecto al pasar el mouse */
+.btn:hover {
+    transform: translateY(-2px); /* Eleva ligeramente */
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.2); 
+    background: transparent; 
+    color: var(--color-primario); 
+}
+
+/* Efecto al hacer clic */
+.btn:active {
+    transform: translateY(1px); /* Baja ligeramente */
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1); 
+}
+
+/* Efecto de brillo en el botón */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent); 
+    transform: rotate(45deg); 
+    transition: all 0.6s ease; 
+    z-index: -1; 
+}
+
+/* Activa la animación de brillo al pasar el mouse */
+.btn:hover::before {
+    animation: shine 1.5s ease; /* Animación de brillo */
+}
+
+/* Ajuste responsivo para botones */
+@media (max-width: 768px) {
+    .btn {
+        padding: var(--espaciado-sm) var(--espaciado-lg); 
+        font-size: var(--texto-sm); 
+    }
+}
+
+/* Contenedor secundario */
+.sec-container {
+    padding: var(--espaciado-xl);
+    background: var(--color-oscuro-2); 
+    border-radius: var(--borde-radio-lg); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    margin: var(--espaciado-xl) auto; 
+    max-width: 1200px; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Efecto al pasar el mouse */
+.sec-container:hover {
+    transform: translateY(-5px); /* Eleva */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease; 
+}
+
+/* Clase para animación al hacer scroll */
+.sec-container.reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Desplazado hacia abajo */
+    transition: all 0.8s ease; 
+}
+
+/* Estado activo al hacer scroll */
+.sec-container.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* En posición original */
+}
+
+/* Efecto de gradiente al pasar el mouse */
+.sec-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.05), transparent); 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: inherit; 
+}
+
+/* Muestra el gradiente al pasar el mouse */
+.sec-container:hover::before {
+    opacity: 1;
+}
+
+/* Párrafos dentro del contenedor */
+.sec-container p {
+    font-weight: 600; 
+    text-align: center; 
+}
+
+/* Título dentro del contenedor */
+.sec-container h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Tamaño adaptable */
+    color: var(--color-primario); 
+    text-align: center;
+    margin-bottom: var(--espaciado-xl); 
+    font-weight: 700; 
+    position: relative;
+}
+
+/* Línea decorativa debajo del título */
+.sec-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Debajo del título */
+    left: 50%;
+    transform: translateX(-50%); /* Centrado */
+    width: 80px; 
+    height: 4px; 
+    background: var(--color-acento); 
+    border-radius: var(--borde-radio-sm); 
+}
+
+/* Efecto al pasar el mouse sobre el título */
+.sec-container h2:hover {
+    color: var(--color-secundario); /* Cambia a azul */
+    transform: scale(1.02); /* Aumenta ligeramente */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1200px) {
+    .sec-container {
+        margin: var(--espaciado-lg); 
+        padding: var(--espaciado-lg); 
+    }
+}
+
+@media (max-width: 768px) {
+    .sec-container {
+        margin: var(--espaciado-md); 
+        padding: var(--espaciado-md); /
+    }
+    .sec-container h2 {
+        font-size: clamp(1.5rem, 3vw, 2rem); 
+        margin-bottom: var(--espaciado-lg); 
+    }
+}
+
+@media (max-width: 480px) {
+    .sec-container {
+        margin: var(--espaciado-sm); 
+        padding: var(--espaciado-sm); 
+        border-radius: var(--borde-radio-md); 
+    }
+}
+
+/* Sección de ofertas */
+.offerings {
+    padding: var(--espaciado-xl); 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/Codigos.jpg); /* Fondo con imagen */
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--borde-radio-lg); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    margin: var(--espaciado-xl) 0; 
+    transition: all 0.3s ease; 
+}
+
+/* Efecto al pasar el mouse */
+.offerings:hover {
+    transform: translateY(-5px); /* Eleva */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); 
+}
+
+/* Lista dentro de la sección de ofertas */
+.offerings ul {
+    list-style: none; 
+    padding: 0;
+    margin: var(--espaciado-lg) 0; 
+}
+
+/* Ítems de la lista */
+.offerings ul li {
+    padding: var(--espaciado-md); 
+    font-weight: 600; 
+    margin-bottom: var(--espaciado-md); 
+    border-left: 4px solid var(--color-primario); 
+    background: var(--color-oscuro-2); 
+    border-radius: 0 var(--borde-radio-md) var(--borde-radio-md) 0; 
+    transition: all 0.3s ease; 
+}
+
+/* Efecto al pasar el mouse */
+.offerings ul li:hover {
+    background: rgba(37, 99, 235, 0.1); 
+    transform: translateX(10px); /* Desplaza a la derecha */
+}
+
+/* Texto destacado dentro de los ítems */
+.offerings ul li span {
+    color: var(--color-primario); 
+    font-weight: 600; 
+    display: block; 
+    margin-bottom: var(--espaciado-xs); 
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .offerings {
+        padding: var(--espaciado-lg); 
+        margin: var(--espaciado-lg) var(--espaciado-md); 
+    }
+    .offerings ul li {
+        padding: var(--espaciado-sm); 
+        margin-bottom: var(--espaciado-sm); 
+        font-size: var(--texto-sm); 
+    }
+}
+
+@media (max-width: 480px) {
+    .offerings {
+        padding: var(--espaciado-md); 
+        margin: var(--espaciado-md) var(--espaciado-sm); 
+    }
+    .offerings ul li {
+        border-left-width: 3px; 
+    }
+}
+
+/* Sección de compromiso */
+.commitment {
+    padding: var(--espaciado-xl); 
+    margin: var(--espaciado-xl) auto; 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/laptop.jpg); 
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: var(--borde-radio-lg); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Efecto de gradiente al pasar el mouse */
+.commitment::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), transparent); 
+    transform: translateX(-100%); /* Fuera a la izquierda */
+    transition: transform 0.6s ease-in-out; 
+}
+
+/* Muestra el gradiente al pasar el mouse */
+.commitment:hover::before {
+    transform: translateX(0); /* Entra en la pantalla */
+}
+
+/* Título dentro de la sección de compromiso */
+.commitment h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Tamaño adaptable */
+    color: var(--color-primario); 
+    margin-bottom: var(--espaciado-lg); 
+    font-weight: 700; 
+    line-height: 1.2; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Párrafo dentro de la sección de compromiso */
+.commitment p {
+    font-size: clamp(1rem, 2vw, 1.25rem); /* Tamaño adaptable */
+    color: var(--color-claro); 
+    line-height: 1.8; 
+    margin-bottom: var(--espaciado-xl); 
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards 0.2s; /* Animación con retraso */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .commitment {
+        padding: var(--espaciado-lg) var(--espaciado-md); 
+        margin: calc(var(--espaciado-xl) * 3) var(--espaciado-md) var(--espaciado-lg); 
+    }
+    .commitment h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem); 
+    }
+    .commitment p {
+        font-size: clamp(0.9rem, 1.8vw, 1.1rem); /
+    }
+}
+
+@media (max-width: 480px) {
+    .commitment {
+        padding: var(--espaciado-md); 
+        margin: calc(var(--espaciado-xl) * 2) var(--espaciado-sm) var(--espaciado-md); 
+    }
+}
+
+/* Mensaje de confianza */
+.trust-message {
+    position: relative;
+    padding: var(--espaciado-xl); 
+    background: var(--color-oscuro-2); 
+    border-radius: var(--borde-radio-lg); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    overflow: hidden; 
+    border: 2px solid rgba(37, 99, 235, 0.1); 
+    animation: messageAppear 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Efecto al pasar el mouse */
+.trust-message:hover {
+    transform: translateY(-5px); /* Eleva */
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15); 
+    transition: all 0.3s ease; 
+}
+
+/* Línea decorativa superior */
+.trust-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; 
+    background: linear-gradient(90deg, var(--color-primario), var(--color-acento)); /
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .trust-message {
+        padding: var(--espaciado-lg); 
+        margin: var(--espaciado-md); 
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-message {
+        padding: var(--espaciado-md); 
+        margin: var(--espaciado-sm); 
+    }
+}
+
+/* Pie de página social */
+/* Estilos básicos del footer */
+/* Estilos básicos del footer */
+.social-footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para los íconos de redes sociales */
+.social-media {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Permite que los íconos se apilen si no caben */
+}
+
+.social-media a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px; /* Tamaño base de los íconos */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-media a:hover {
+    color: var(--color-primario); /* Color al pasar el ratón */
+    transform: scale(1.1); /* Efecto de aumento */
+}
+
+/* Estilos para la dirección */
+.social-footer .direction {
+    font-style: normal;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.social-footer .direction a {
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+.social-footer .direction a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para los derechos de autor */
+.social-footer p {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Media Queries para responsividad */
+
+/* Pantallas medianas (tabletas, hasta 768px) */
+@media (max-width: 768px) {
+    .social-footer {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: center;
+        padding: 15px;
+    }
+
+    .social-media {
+        justify-content: center; /* Centra los íconos */
+        gap: 12px;
+    }
+
+    .social-media a {
+        font-size: 25px; /* Reduce tamaño en tabletas */
+    }
+
+    .social-footer .direction {
+        margin: 10px 0;
+    }
+}
+
+/* Pantallas pequeñas (móviles, hasta 480px) */
+@media (max-width: 480px) {
+    .social-footer {
+        padding: 10px;
+    }
+
+    .social-media {
+        gap: 10px;
+    }
+
+    .social-media a {
+        font-size: 20px; /* Reduce tamaño en móviles */
+    }
+
+    .social-footer .direction {
+        font-size: 0.85em; /* Reduce tamaño de texto */
+    }
+
+    .social-footer p {
+        font-size: 0.8em;
+    }
+}
+/* Formulario */
+form {
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: var(--espaciado-xl); 
+    background: var(--color-oscuro-2); 
+    border-radius: var(--borde-radio-lg); 
+    display: flex; 
+    flex-direction: column; 
+    gap: var(--espaciado-md); 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Efecto al pasar el mouse */
+form:hover {
+    transform: translateY(-5px); /* Eleva */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease; 
+}
+
+/* Clase para animación al hacer scroll */
+form.reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Desplazado hacia abajo */
+    transition: all 0.8s ease; /* Transición suave */
+}
+
+/* Estado activo al hacer scroll */
+form.reveal.active {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+/* Efecto de gradiente al pasar el mouse */
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.05), transparent); 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: inherit; 
+}
+
+/* Muestra el gradiente al pasar el mouse */
+form:hover::before {
+    opacity: 1;
+}
+
+/* Etiquetas del formulario */
+label {
+    color: var(--color-texto);
+    font-weight: 500; 
+}
+
+/* Campos de entrada y área de texto */
+input, textarea {
+    padding: var(--espaciado-md); 
+    border: 2px solid var(--color-primario); 
+    border-radius: var(--borde-radio-md); 
+    background: var(--color-oscuro); 
+    color: var(--color-texto); 
+    font-size: 1rem; 
+}
+
+/* Color de texto placeholder */
+::placeholder{
+    color: #01fcfc52;
+}
+
+/* Efecto al enfocar */
+input:focus, textarea:focus {
+    outline: none; /* Sin contorno predeterminado */
+    box-shadow: 0 0 0 2px var(--color-primario); 
+}
+
+/* Botones */
+button {
+    padding: var(--espaciado-md) var(--espaciado-xl); 
+    background: var(--color-primario); 
+    color: var(--color-oscuro); 
+    border: none; 
+    border-radius: var(--borde-radio-md); 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    transform: translateY(-2px); /* Eleva */
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3); 
+}
+
+/* Ajuste responsivo para formularios */
+@media (max-width: 768px) {
+    form {
+        padding: var(--espaciado-md); 
+    }
+}
+
+/* Contenedor de términos */
+.terms-container {
+    display: flex; 
+    align-items: center; /* Alineación vertical */
+    gap: var(--espaciado-sm); 
+}
+
+/* Enlaces dentro del contenedor de términos */
+.terms-container a {
+    text-decoration: none; 
+    color: red; 
+}
+
+/* Checkbox en el contenedor de términos */
+.terms-container input[type="checkbox"] {
+    width: auto; 
+    margin: 0; 
+}
+
+/* ---- Página de productos ---- */
+
+/* Contenedor de productos */
+.product-container {
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* Estilos para cada producto */
+.producto {
+    padding: var(--espaciado-xl); 
+    background: var(--color-oscuro-2); 
+    border-radius: var(--borde-radio-lg); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    margin: var(--espaciado-xl) auto; 
+    max-width: 1200px; 
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Efecto al pasar el mouse */
+.producto:hover {
+    transform: translateY(-5px); /* Eleva */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); 
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Efecto de gradiente al pasar el mouse */
+.producto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.05), transparent); 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: inherit; /* Hereda el radio */
+}
+
+/* Muestra el gradiente al pasar el mouse */
+.producto:hover::before {
+    opacity: 1;
+}
+
+/* Imagen del producto */
+.producto img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px 10px 0 0; /* Bordes redondeados arriba */
+}
+
+/* Título del producto */
+.producto h2 {
+    font-size: 2rem; 
+    font-weight: 600; 
+    color: var(--color-primario); 
+    margin: 10px 0; /* Espacio vertical */
+}
+
+/* Lista de productos */
+.producto ul {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas adaptables */
+    gap: 1rem; 
+}
+
+/* Ítems de la lista de productos */
+.producto ul li {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    border: 1px solid white; 
+    padding-bottom: 1rem;
+    border-radius: 10px; 
+    transition: all 0.5s; /* Transición suave */
+    text-align: center; 
+    transform: translateY(5px); /* Desplazado hacia abajo */
+}
+
+/* Efecto al pasar el mouse */
+.producto ul li:hover {
+    transform: translateY(-5px); /* Eleva */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+}
+
+/* Párrafos dentro de la lista */
+.producto ul p {
+    font-size: 1em; 
+    height: 4.5rem; 
+    font-weight: 600; 
+    color: var(--color-claro); 
+    line-height: 1.5; 
+    padding: 1rem; 
+    border-radius: 0 0 10px 10px; 
+}
+
+/* Descripción de la imagen */
+.producto ul figcaption {
+    color: var(--color-primario);
+    font-weight: 700; 
+    padding: 5px 0 7px; 
+}
+
+/* Precio del producto */
+.producto .precio {
+    font-size: 1.4em; 
+    color: #e74c3c; 
+    font-weight: bold; 
+    margin: 10px 10px; 
+}
+
+/* Botón de compra */
+.producto .boton-compra {
+    background-color: var(--color-primario); /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 0 15px;  /* Relleno */
+    height: 2.5rem;
+    border: none; /* Sin borde */
+    border-radius: var(--borde-radio-lg); /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+/* Efecto al pasar el mouse */
+.producto .boton-comprar:hover {
+    background-color: #2980b9; /* Azul más oscuro */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1200px) {
+    .producto {
+        margin: var(--espaciado-lg); /* Margen grande */
+        padding: var(--espaciado-lg); /* Relleno grande */
+    }
+}
+
+@media (max-width: 768px) {
+    .producto {
+        margin: var(--espaciado-md); /* Margen mediano */
+        padding: var(--espaciado-md); /* Relleno mediano */
+    }
+}
+
+@media (max-width: 480px) {
+    .producto {
+        margin: var(--espaciado-sm); /* Margen pequeño */
+        padding: var(--espaciado-sm); /* Relleno pequeño */
+        border-radius: var(--borde-radio-md); /* Bordes ajustados */
+    }
+}
+
+/* Sección de testimonios */
+.testimonios {
+    display: flex; /* Diseño flexible */
+    justify-content: center; /* Centrado horizontal */
+    flex-direction: column; /* Columna */
+    gap: var(--espaciado-sm); /* Espacio entre elementos */
+}
+
+/* Párrafos en testimonios */
+.testimonios p {
+    text-align: center; /* Centrado */
+}
+
+/* ---- Página de contactos ---- */
+
+/* Contenedor del mapa */
+.map-container {
+    max-width: 100%; /* Ancho máximo */
+    margin: 20px auto; /* Margen centrado */
+    padding: 10px; /* Relleno */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-color: #f9f9f9; /* Fondo gris claro */
+    overflow: hidden; /* Oculta desbordamiento */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Efecto al pasar el mouse */
+.map-container:hover {
+    transform: translateY(-5px); /* Eleva */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Clase para animación al hacer scroll */
+.map-container.reveal {
+    opacity: 0;
+    transform: translateY(50px); /* Desplazado hacia abajo */
+    transition: all 0.8s ease; /* Transición suave */
+}
+
+/* Estado activo al hacer scroll */
+.map-container.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* En posición original */
+}
+
+/* Efecto de gradiente al pasar el mouse */
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.05), transparent); /* Gradiente sutil */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: inherit; /* Hereda el radio */
+}
+
+/* Muestra el gradiente al pasar el mouse */
+.map-container:hover::before {
+    opacity: 1;
+}
+
+/* Iframe del mapa */
+.map-container iframe {
+    width: 100%; 
+    height: 100%;
+    min-height: 450px; 
+    border: none; 
+    border-radius: 5px; 
+    display: block; 
+}
+
+/* Ajuste responsivo */
+@media (max-width: 600px) {
+    .map-container {
+        padding: 5px;
+    }
+}
+
+/* Dirección */
+address {
+    font-weight: 600; /* Negrita */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Enlaces dentro de la dirección */
+address a {
+    text-decoration: none; 
+    color: var(--color-primario); 
+}
+
+address a:hover{
+    text-decoration: underline;
+}
